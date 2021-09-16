@@ -1,1 +1,278 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+:root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+  --max-width: 1100px;
+}
+
+.category {
+  --sports-color: #f99500;
+  --ent-color: #a66bbe;
+  --tech-color: #009cff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  line-height: 1.5;
+  background-color: var(--light-color);
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  margin: 0.5rem;
+}
+
+img {
+  width: 100%;
+}
+a i {
+  color: rgb(70, 69, 69);
+  font-size: 2rem;
+}
+/* Utility */
+.display-none {
+  display: none;
+}
+
+.task-mid {
+  background: #f3f562;
+}
+.task-normal {
+  background: #63fa61;
+}
+.task-high {
+  background: #f3a29bc4;
+}
+.task-mid h4 {
+  border-bottom: 1px solid yellow;
+  background: #ead11a;
+}
+.task-normal h4 {
+  border-bottom: 1px solid darkgreen;
+  background: limegreen;
+  border-radius: 5px;
+}
+.task-high h4 {
+  border-bottom: 1px solid #d66363;
+  background: #ef8484;
+  border-radius: 5px;
+}
+.task-container h4 {
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1.1rem;
+}
+/* header */
+.heading {
+  color: var(--primary-color);
+}
+#nav {
+  position: relative;
+}
+#header .container-nav {
+  display: grid;
+  grid-template-columns: 5fr 3fr 1fr;
+  padding: 1rem;
+  align-items: center;
+  width: 100%;
+}
+.mobile-logout {
+  display: none;
+}
+#header h1 {
+  justify-self: center;
+  color: #333;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#header {
+  height: 80px;
+  background-color: rgb(211, 211, 211);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+#header ul {
+  justify-self: center;
+  display: flex;
+}
+
+#header ul a {
+  padding-right: 1.5rem;
+  font-size: 1.1rem;
+}
+
+#header ul a:hover {
+  color: var(--primary-color);
+}
+
+.logout_btn {
+  justify-self: center;
+  padding-right: 1rem;
+}
+
+/* Footer */
+
+#footer {
+  height: 60px;
+  background: rgb(95, 94, 94);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+#footer h1 {
+  color: rgb(167, 164, 164);
+}
+#footer .social {
+  justify-self: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.8rem;
+}
+#footer .social a i {
+  padding-right: 1rem;
+  color: #c0c2c4;
+}
+#footer .social a i:hover {
+  color: var(--primary-color);
+}
+
+/* Kanban senction */
+
+#kanbans .container-kan {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4rem;
+  margin-top: 8rem;
+  padding: 0 7rem;
+}
+#kanbans .container-kan .sub-container {
+  border: 2px solid rgb(199, 198, 198);
+  height: 30rem;
+  box-shadow: 0 0 10px rgb(156, 152, 152);
+}
+.task-collection-container {
+  overflow-y: auto;
+  height: 27rem;
+}
+
+/* Task cards*/
+
+.task {
+  margin: 15px 15px;
+  max-height: 6rem;
+  border-radius: 10px;
+}
+.task p {
+  margin: 0px;
+}
+.task .task-container {
+  padding: 5px;
+  border-radius: 10px;
+}
+.task:hover {
+  box-shadow: 5px 5px 10px rgb(155, 147, 147);
+}
+.add-task {
+  display: flex;
+  justify-content: flex-end;
+  color: #827a7a;
+  font-size: 18px;
+}
+.add-task-container {
+  border-bottom: 1px solid #949697;
+  padding-bottom: 5px;
+}
+.maincontainer {
+  padding-top: 81px;
+}
+
+#kanbans p,
+#kanbans h4 {
+  font-family: "Lato", sans-serif;
+}
+
+/* Mobile */
+/* @media (max-width: 768px) {
+  #header .container-nav {
+    grid-template-columns: 1fr;
+    grid-gap: 0.3rem;
+  }
+  #header {
+    height: 5rem;
+  }
+} */
+@media (max-width: 1024px) {
+  #kanbans .container-kan {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    margin-top: 8rem;
+    padding: 0 1rem;
+  }
+}
+/* tablet */
+@media (max-width: 768px) {
+  #header .container-nav {
+    grid-template-columns: 1fr;
+    grid-gap: 0.3rem;
+  }
+  #header {
+    height: 6rem;
+  }
+  .desktop-logout {
+    display: none;
+  }
+  .mobile-logout {
+    display: block;
+  }
+  .mobile-logout {
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+
+  #kanbans .container-kan {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    padding: 0 2px;
+    margin-bottom: 4rem;
+  }
+  #kanbans .container-kan .sub-container {
+    height: 15rem;
+  }
+  .task-collection-container {
+    height: 12rem;
+  }
+  .maincontainer{
+    padding-top: 6rem;
+  }
+}
+

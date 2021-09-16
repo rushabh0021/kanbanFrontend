@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'personalkanban';
+
+  routes = [
+    {path : "/boards", title: "My Boards" },
+    {path : "/about", title: "about" }, 
+  ];
 }
