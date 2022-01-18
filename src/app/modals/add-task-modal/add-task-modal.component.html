@@ -1,0 +1,33 @@
+<form  #form="ngForm" class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Task Name</mat-label>
+    <input
+      matInput
+      name="taskname"
+      [(ngModel)]="data.name"
+      placeholder="Ex. Update the PR"
+      value="Brush teeth"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput required name="description" [(ngModel)]="data.description" placeholder="Ex. This is very imp PR"></textarea>
+  </mat-form-field>
+
+  <mat-label>Priority</mat-label><br />
+  <mat-button-toggle-group required name="prioritySelector" [(ngModel)]="data.priority">
+    <mat-button-toggle value="Low">Low</mat-button-toggle>
+    <mat-button-toggle value="Medium">Medium</mat-button-toggle>
+    <mat-button-toggle class="high" value="High">High</mat-button-toggle>
+  </mat-button-toggle-group>
+<br />
+  <mat-form-field class="display-block">
+    <mat-label>Due Date</mat-label>
+    <input matInput  name="dueDate" [(ngModel)]="data.dueDate" name="dueDate" [matDatepicker]="picker" required/>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button [disabled]="form.invalid" mat-raised-button [mat-dialog-close]="data">Submit</button>
+</form>

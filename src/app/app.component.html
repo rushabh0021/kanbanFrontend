@@ -13,9 +13,11 @@
             }}</a>
           </li>
         </ul>
-        <div class="desktop-logout">
-            <span>Login</span>
-            <a class="logout_btn" routerLink="/login" routerLinkActive="active"><i class="fas fa-power-off"></i></a>
+        <div class="desktop-logout" *ngIf="_router.url !== '/login' && _router.url !== '/signup'">
+          <mat-icon mat-icon [matMenuTriggerFor]="loginLogout">power_settings_new</mat-icon>
+          <mat-menu #loginLogout="matMenu">
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
         </div>
       </div>
     </nav>

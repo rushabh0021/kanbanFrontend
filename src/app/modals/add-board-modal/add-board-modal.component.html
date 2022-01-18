@@ -1,0 +1,19 @@
+<form class="createBoard-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Board Name</mat-label>
+    <input
+      matInput
+      name="taskname"
+      [(ngModel)]="data.name"
+      placeholder="Ex. Update the PR"
+      value="Brush teeth"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput name="description" [(ngModel)]="data.description" placeholder="Ex. This is very imp PR"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button [mat-dialog-close]="data">Submit</button>
+</form>

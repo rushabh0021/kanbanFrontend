@@ -1,1 +1,25 @@
-<p>signup works!</p>
+<!-- Signup section -->
+<section class="" id="signup">
+  <div class="center">
+    <h1>Signup</h1>
+    <form (submit)="callSignUpAPI($event)">
+      <div class="txt_field">
+        <input type="text" name="email" required />
+        <span></span>
+        <label>Username</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" name="password" required />
+        <span></span>
+        <label>Password</label>
+      </div>
+      <p class="register-res">{{ message }}</p>
+      <div class="pass"></div>
+      <input type="submit" value="signup" />
+      <div class="signup_link">
+        Already have an Account?
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+      </div>
+    </form>
+  </div>
+</section>

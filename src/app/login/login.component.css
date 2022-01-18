@@ -121,3 +121,9 @@ input[type="submit"]:hover{
 .signup_link a:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    #login .center {
+        width: 95vw;
+    }
+}

@@ -59,20 +59,20 @@ a i {
   display: none;
 }
 
-.task-mid {
+.task-medium {
   background: #f3f562;
 }
-.task-normal {
+.task-low {
   background: #63fa61;
 }
 .task-high {
   background: #f3a29bc4;
 }
-.task-mid h4 {
+.task-medium h4 {
   border-bottom: 1px solid yellow;
   background: #ead11a;
 }
-.task-normal h4 {
+.task-low h4 {
   border-bottom: 1px solid darkgreen;
   background: limegreen;
   border-radius: 5px;
@@ -170,7 +170,7 @@ a i {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 4rem;
-  margin-top: 8rem;
+  margin-top: 5rem;
   padding: 0 7rem;
 }
 #kanbans .container-kan .sub-container {
@@ -205,6 +205,7 @@ a i {
   justify-content: flex-end;
   color: #827a7a;
   font-size: 18px;
+  padding: 2px;
 }
 .add-task-container {
   border-bottom: 1px solid #949697;
@@ -234,7 +235,7 @@ a i {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
-    margin-top: 8rem;
+    margin-top: 5rem;
     padding: 0 1rem;
   }
 }
@@ -274,5 +275,9 @@ a i {
   .maincontainer{
     padding-top: 6rem;
   }
+}
+
+.mat-dialog-container{
+  background: papayawhip;
 }
 

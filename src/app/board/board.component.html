@@ -1,1 +1,25 @@
-<p>board works!</p>
+<div class="boards-container">
+  <div class="header-container">
+    <h1>Board List</h1>
+    <span (click)="openAddBoardModal()"><mat-icon>add</mat-icon></span>
+  </div>
+  <div class="board-list-container">
+    <mat-card *ngFor="let board of boards" (click)="showKanban(board._id)" class="board-div">
+      <div [attr.data-id]="board._id" class="board-card">
+        <h4>{{ board.name }}</h4>
+        <div class="icons-container">
+          <mat-icon>edit</mat-icon>
+          <mat-icon>delete</mat-icon>
+        </div>
+      </div>
+      <p>{{ board.description }}</p>
+    </mat-card>
+    <!-- <mat-card class="board-card">
+      <h4>THis is board name</h4>
+      <div class="icons-container">
+        <mat-icon>edit</mat-icon>
+        <mat-icon>delete</mat-icon>
+      </div>
+    </mat-card> -->
+  </div>
+</div>

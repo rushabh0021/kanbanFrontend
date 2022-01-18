@@ -1,1 +1,122 @@
-<p>kanban works!</p>
+<!-- kanban sectin -->
+<section class="" id="kanbans">
+  <div class="container-kan">
+    <div class="sub-container task-pool">
+      <p class="add-task-container">
+        <i class="fas fa-plus add-task" (click)="openAddTaskModal()"></i>
+      </p>
+      <div
+        class="task-collection-container"
+        cdkDropList
+        #taskPool="cdkDropList"
+        [cdkDropListData]="taskpool"
+        [cdkDropListConnectedTo]="[inProgressList,doneList]"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="task" *ngFor="let task of taskpool" cdkDrag>
+          <div [class]="'task-'+task.priority" class="task-container">
+            <h4>{{ task.taskName }}</h4>
+            <p>{{ task.description }}</p>
+          </div>
+        </div>
+        <!-- <div class="task">
+          <div class="task-container task-high">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-container task-mid">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-container task-normal">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="sub-container inProgress">
+      <p class="add-task-container"></p>
+      <div
+        class="task-collection-container"
+        cdkDropList
+        #inProgressList="cdkDropList"
+        [cdkDropListData]="inprogress"
+        [cdkDropListConnectedTo]="[taskPool,doneList]"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="task" *ngFor="let task of inprogress" cdkDrag>
+          <div [class]="'task-'+task.priority" class="task-container">
+            <h4>{{ task.taskName }}</h4>
+            <p>{{ task.description }}</p>
+          </div>
+        </div>
+
+        <!-- <div class="task">
+          <div class="task-container task-mid">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-container task-normal">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-container task-high">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="sub-container finished">
+       <p class="add-task-container"></p>
+      <div
+        class="task-collection-container"
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[taskPool,inProgressList]"
+        (cdkDropListDropped)="drop($event)"
+      >
+       <div class="task" *ngFor="let task of done" cdkDrag>
+          <div [class]="'task-'+task.priority" class="task-container">
+            <h4>{{ task.taskName }}</h4>
+            <p>{{ task.description }}</p>
+          </div>
+        </div>
+       <!--  <div class="task">
+          <div class="task-container task-high">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-container task-mid">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-container task-normal">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div>
+        <div class="task">
+          <div class="task-container task-high">
+            <h4>This is task label</h4>
+            <p>This is description about the task which is very important</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>

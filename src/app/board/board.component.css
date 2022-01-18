@@ -1,0 +1,28 @@
+.boards-container {
+  margin: 2rem 10rem;
+}
+.board-card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.icons-container .mat-icon {
+  margin-right: 7px;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+.board-div:hover {
+  background-color: rgb(156, 156, 250);
+}
+.board-div{
+  background: lavender;
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .boards-container {
+    margin: 2rem 1rem;
+  }
+}
