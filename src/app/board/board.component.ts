@@ -48,7 +48,6 @@ export class BoardComponent implements OnInit {
         console.log(taskArray);
         if (taskArray.data) {
           this.boardService.setTaskData(taskArray.data);
-          localStorage.setItem("tasks", JSON.stringify(this.boards));
         }
       });
     } else {

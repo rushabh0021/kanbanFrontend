@@ -4,7 +4,7 @@
     <input
       matInput
       name="taskname"
-      [(ngModel)]="data.name"
+      [(ngModel)]="data.taskName"
       placeholder="Ex. Update the PR"
       value="Brush teeth"
       required
@@ -18,9 +18,9 @@
 
   <mat-label>Priority</mat-label><br />
   <mat-button-toggle-group required name="prioritySelector" [(ngModel)]="data.priority">
-    <mat-button-toggle value="Low">Low</mat-button-toggle>
-    <mat-button-toggle value="Medium">Medium</mat-button-toggle>
-    <mat-button-toggle class="high" value="High">High</mat-button-toggle>
+    <mat-button-toggle value="low">Low</mat-button-toggle>
+    <mat-button-toggle value="medium">Medium</mat-button-toggle>
+    <mat-button-toggle class="high" value="high">High</mat-button-toggle>
   </mat-button-toggle-group>
 <br />
   <mat-form-field class="display-block">

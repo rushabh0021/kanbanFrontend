@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 interface taskData {
-  name: string,
+  taskName: string,
   description: string,
   priority: string,
   dueDate: string

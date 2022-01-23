@@ -38,7 +38,7 @@ export class LoginsignupService implements OnDestroy, OnInit {
     localStorage.setItem("kanId", token);
   }
   getAuthToken() {
-    return this.authToken;
+    return this.authToken ? this.authToken : localStorage.getItem("kanId");
   }
   deleteAuthToken() {
     this.authToken = "";

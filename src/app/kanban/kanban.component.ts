@@ -6,7 +6,7 @@ import { BoardAndTaskService } from '../board-and-task.service';
 import { AddBoardModalComponent } from '../modals/add-board-modal/add-board-modal.component';
 import { AddTaskModalComponent } from '../modals/add-task-modal/add-task-modal.component';
 interface taskData {
-  name: string,
+  taskName: string,
   description: string,
   priority: string,
   dueDate: string
@@ -18,8 +18,8 @@ interface taskData {
 })
 export class KanbanComponent implements OnInit {
   taskData: taskData = {
-    name: "abc",
-    description: "xyz",
+    taskName: "task name",
+    description: "description",
     dueDate: "",
     priority: ""
   }
@@ -120,16 +120,16 @@ export class KanbanComponent implements OnInit {
   inprogress = [];
 
   kanbanArray = {
-    taskpool : this.taskpool,
+    taskpool: this.taskpool,
     done: this.done,
     inprogress: this.inprogress
   }
- 
+
   ngOnInit(): void {
   }
 
 
-  populateArray(boardId){
+  populateArray(boardId) {
     let taskData = this.boardTaskService.getTaskData();
     taskData.filter((kanban) => {
       /* if (boardId === kanban.board){
@@ -145,7 +145,7 @@ export class KanbanComponent implements OnInit {
             break;  
         }
       } */
-      if (boardId === kanban.board){
+      if (boardId === kanban.board) {
         this.kanbanArray[kanban.status].push(kanban);
       }
     });
@@ -160,9 +160,17 @@ export class KanbanComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      this.taskData = result;
+      //this.taskData = result;
+      this.callCreateTaskApi(result);
     });
 
+  }
+  callCreateTaskApi(taskData) {
+    let taskDataWithBoardId = { ...taskData, board: this.boardId, status: "taskpool" };
+    this.boardTaskService.createTask(taskDataWithBoardId).subscribe((res: any) => {
+      console.log(res);
+      this.kanbanArray[res.data.status].push(res.data);
+    });
   }
 
   drop(event: CdkDragDrop<string[]>) {

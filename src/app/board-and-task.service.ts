@@ -29,7 +29,8 @@ export class BoardAndTaskService {
   createTask(taskData) {
     //create task
     let headers = this.getHeaderWithAuthToken();
-    return this.http.post(`${this.getUrl()}${this.createTaskPath}`, { taskData }, { headers: headers });
+
+    return this.http.post(`${this.getUrl()}${this.createTaskPath}`,  taskData , { "headers": headers });
   }
 
   getTasks() {
@@ -47,6 +48,7 @@ export class BoardAndTaskService {
   }
   setTaskData(tasks) {
     this.tasks = tasks;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }
   getTaskData() {
     return this.tasks ? this.tasks : this.getTasksFromStorage();
