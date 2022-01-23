@@ -41,12 +41,12 @@ export class BoardComponent implements OnInit {
       this.getTaskApiCall();
     }
   }
-  getTaskApiCall() {
+  /* getTaskApiCall() {
     let tasks = this.boardService.getTasksFromStorage()
     if (!tasks) {
       this.boardService.getTasks().subscribe((taskArray: any) => {
         console.log(taskArray);
-        if (taskArray.data) {
+        if (taskArray.data) { 
           this.boardService.setTaskData(taskArray.data);
         }
       });
@@ -54,7 +54,10 @@ export class BoardComponent implements OnInit {
       console.log(this.loginService.getAuthToken());
       this.tasks = tasks;
     }
-  }
+  } */
+   getTaskApiCall() {
+     this.boardService.getTasks();
+  } 
 
   openAddBoardModal() {
     const dialogRef = this.dialog.open(AddBoardModalComponent, {

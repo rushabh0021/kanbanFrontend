@@ -30,13 +30,17 @@ export class BoardAndTaskService {
     //create task
     let headers = this.getHeaderWithAuthToken();
 
-    return this.http.post(`${this.getUrl()}${this.createTaskPath}`,  taskData , { "headers": headers });
+    return this.http.post(`${this.getUrl()}${this.createTaskPath}`, taskData, { "headers": headers });
   }
 
   getTasks() {
     //get all tasks of board
     let headers = this.getHeaderWithAuthToken();
-    return this.http.get(`${this.getUrl()}${this.getAllTasks}`, { headers: headers });
+    this.http.get(`${this.getUrl()}${this.getAllTasks}`, { headers: headers }).subscribe((taskArray: any) => {
+      if (taskArray.data) {
+        this.setTaskData(taskArray.data);
+      }
+    });
   }
 
   getBoardsFromStorage() {
