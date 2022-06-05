@@ -21,6 +21,9 @@
   background: lavender;
   margin-bottom: 10px;
 }
+.delete-board-button{
+  cursor: pointer;
+}
 @media (max-width: 768px) {
   .boards-container {
     margin: 2rem 1rem;

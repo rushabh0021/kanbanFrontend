@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginsignupService } from './loginsignup.service';
 
-const url = "http://localhost:3000/api/";
+const url = "https://cryptic-falls-65041.herokuapp.com/api/";
 @Injectable({
   providedIn: 'root'
 })
@@ -12,12 +12,18 @@ export class BoardAndTaskService {
   signInPath = "signin";
   createTaskPath = "task";
   getAllTasks = "task";
+  updateTask = "task";
   private tasks = [];
   constructor(private http: HttpClient, private loginService: LoginsignupService) { }
 
   getBoards() {
     return this.http.get(`${this.getUrl()}${this.getBoardsPath}`, { headers: this.getHeaderWithAuthToken() });
   }
+  deleteBoard(boardData){
+    let headers = this.getHeaderWithAuthToken();
+    return this.http.delete(`${this.getUrl()}${this.getBoardsPath}/${boardData._id}`, { "headers": headers });
+  }
+
   createBoard(boardData) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -27,14 +33,11 @@ export class BoardAndTaskService {
   }
 
   createTask(taskData) {
-    //create task
     let headers = this.getHeaderWithAuthToken();
-
     return this.http.post(`${this.getUrl()}${this.createTaskPath}`, taskData, { "headers": headers });
   }
 
   getTasks() {
-    //get all tasks of board
     let headers = this.getHeaderWithAuthToken();
     this.http.get(`${this.getUrl()}${this.getAllTasks}`, { headers: headers }).subscribe((taskArray: any) => {
       if (taskArray.data) {
@@ -48,18 +51,29 @@ export class BoardAndTaskService {
   }
 
   getTasksFromStorage() {
-    return localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : "";
+    let tasks = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : [];
+    return tasks;
   }
+
   setTaskData(tasks) {
     this.tasks = tasks;
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
+
   getTaskData() {
-    return this.tasks ? this.tasks : this.getTasksFromStorage();
+    let tasks = this.tasks && this.tasks.length > 1 ? this.tasks : this.getTasksFromStorage();
+    return tasks;
   }
+
   getUrl() {
     return url;
   }
+
+  updateTaskApi(taskData) {
+    let headers = this.getHeaderWithAuthToken();
+    return this.http.put(`${this.getUrl()}${this.updateTask}/${taskData._id}`, taskData, { "headers": headers });
+  }
+
   getHeaderWithAuthToken() {
     return new HttpHeaders({
       'Content-Type': 'application/json',

@@ -69,7 +69,8 @@ export class BoardComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result);
       this.boardService.createBoard(result).subscribe((res) => {
-        console.log(res);
+        localStorage.removeItem('boards');
+        this.getBoardsApiCall();
 
       });
     });
@@ -79,4 +80,11 @@ export class BoardComponent implements OnInit {
     this.router.navigate(['kanban', { boardId: clickedBoardId} ]);
   }
 
+  callDeleteBoard(event ,boardData){
+    event.stopPropagation();
+    this.boardService.deleteBoard(boardData).subscribe((res)=>{
+      localStorage.removeItem('boards');
+      this.getBoardsApiCall();
+    });
+  }
 }

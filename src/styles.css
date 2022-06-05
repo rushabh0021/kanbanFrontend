@@ -187,7 +187,7 @@ a i {
 
 .task {
   margin: 15px 15px;
-  max-height: 6rem;
+  /* max-height: 6rem; */
   border-radius: 10px;
 }
 .task p {
@@ -265,6 +265,7 @@ a i {
     grid-gap: 1rem;
     padding: 0 2px;
     margin-bottom: 4rem;
+    margin-top: 2rem;
   }
   #kanbans .container-kan .sub-container {
     height: 15rem;

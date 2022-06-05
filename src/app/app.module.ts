@@ -13,7 +13,6 @@ import { AboutComponent } from './about/about.component';
 import { AddTaskModalComponent } from './modals/add-task-modal/add-task-modal.component';
 import { AddBoardModalComponent } from './modals/add-board-modal/add-board-modal.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptopServiceService } from './token-interceptop-service.service';
 import { JwtModule } from "@auth0/angular-jwt";
 
 export function tokenGetter() {
@@ -47,11 +46,7 @@ export function tokenGetter() {
       },
     }),
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptopServiceService,
-    multi: true
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

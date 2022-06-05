@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-const url = "http://localhost:3000/";
+const url = "https://cryptic-falls-65041.herokuapp.com/";
 @Injectable({
   providedIn: 'root'
 })

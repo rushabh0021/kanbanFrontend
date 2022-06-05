@@ -9,7 +9,7 @@
         <h4>{{ board.name }}</h4>
         <div class="icons-container">
           <mat-icon>edit</mat-icon>
-          <mat-icon>delete</mat-icon>
+          <mat-icon class="delete-board-button" (click)="callDeleteBoard($event, board)">delete</mat-icon>
         </div>
       </div>
       <p>{{ board.description }}</p>

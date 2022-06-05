@@ -22,3 +22,7 @@
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+.submit-button-wrapper{
+  float: right;
+  padding: 20px 20px 0 0;
+}

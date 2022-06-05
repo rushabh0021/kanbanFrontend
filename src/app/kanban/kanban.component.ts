@@ -173,6 +173,24 @@ export class KanbanComponent implements OnInit {
     });
   }
 
+  evaluateTaskToUpdate() {
+
+    Object.keys(this.kanbanArray).forEach((taskType) => {
+
+      this.kanbanArray[taskType].forEach((taskElem) => {
+        if (taskElem.status !== taskType) {
+          taskElem.status = taskType;
+          this.boardTaskService.updateTaskApi(taskElem).subscribe((response)=>{
+            console.log(response);
+            
+          });
+        }
+      });
+
+    });
+    
+  }
+
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       (event.container.data, event.previousIndex, event.currentIndex);
