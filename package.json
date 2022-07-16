@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node --optimize_for_size --max_old_space_size=460 server.js",
+    "start": "node --max_old_space_size=460 server.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
